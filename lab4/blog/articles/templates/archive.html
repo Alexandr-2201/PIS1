@@ -1,0 +1,25 @@
+<head>
+	<link rel="stylesheet" href="/static/css/article.css">
+	<title>Архив статей</title>
+</head>
+<body class="archive">
+	<div class="header">
+		<img src="/static/img/sql-logo.png" />
+	</div>
+	<div>
+		{% for post in posts %}
+		<div class="one-post">
+			<h2 class="post-title">
+				<a href="{% url 'get_archive' article_id=post.id %}">
+                    			{{ post.title }}
+                		</a>
+			</h2>
+			<div class="archive-info">
+				<div class="archive-author">{{ post.author.username }}</div>
+				<div class="archive-created-date">{{ post.created_date }}</div>
+			</div>
+			<p class="archive-text">{{ post.get_excerpt }}</p>
+		</div>
+		{% endfor %}
+	</div>
+</body>

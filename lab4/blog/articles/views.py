@@ -1,0 +1,25 @@
+from .models import Article
+from django.shortcuts import render
+from django.http import Http404
+
+def archive(request):
+    return render(request, 'archive.html', {"posts": Article.objects.all()})
+
+def get_archive(request, article_id):
+    try:
+        post = Article.objects.get(id=article_id)
+        return render(request, 'archive.html', {"posts": [post]})
+    except Article.DoesNotExist:
+        raise Http404
+
+def article(request):
+    return render(request, 'article.html', {"posts": Article.objects.all()})
+
+def get_article(request, article_id):
+    try:
+        post = Article.objects.get(id=article_id)
+        return render(request, 'article.html', {"posts": [post]})
+    except Article.DoesNotExist:
+        raise Http404
+    
+# Create your views here.

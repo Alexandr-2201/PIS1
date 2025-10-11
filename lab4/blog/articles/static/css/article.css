@@ -1,0 +1,52 @@
+body {
+    background: #babcbc; 
+    font-family: Tahoma, Arial, sans-serif; 
+    color: #333;
+}
+p, h4 {
+    font-size: 20px; 
+    margin-bottom: 0;
+}
+h4 {
+    font-size: 24px; 
+}
+ul, ol {
+    margin: 0;
+}
+.article h2 {
+	font-family: "Arial";
+}
+.archive h2 {
+	font-family: "Comic Sans";
+	font-size: 18px;
+}
+.archive-text {
+	font-family: "Comic Sans";
+	font-size: 16px;
+}
+.article {
+	width: 960px; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header img {
+	display: block; 
+	width: 250px; 
+	margin-left: auto; 
+	margin-right: auto;
+}
+.post-title a {
+	color: #ffffff;
+}
+.article-author { 
+	width: 50%; 
+	float: left;
+}
+.article-created-date { 
+	text-align: right;
+}
+.all-articles {
+	float: right;
+	color: #eeeeee;
+}
