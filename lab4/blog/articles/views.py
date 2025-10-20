@@ -3,22 +3,22 @@ from django.shortcuts import render
 from django.http import Http404
 
 def archive(request):
-    return render(request, 'archive.html', {"posts": Article.objects.all()})
+    return render(request, 'archive.html', {"posts": Article.objects.all(), 'full_text': False})
 
 def get_archive(request, article_id):
     try:
         post = Article.objects.get(id=article_id)
-        return render(request, 'archive.html', {"posts": [post]})
+        return render(request, 'archive.html', {"posts": [post], 'full_text': True})
     except Article.DoesNotExist:
         raise Http404
 
 def article(request):
-    return render(request, 'article.html', {"posts": Article.objects.all()})
+    return render(request, 'article.html', {"posts": Article.objects.all(), 'full_text': False})
 
 def get_article(request, article_id):
     try:
         post = Article.objects.get(id=article_id)
-        return render(request, 'article.html', {"posts": [post]})
+        return render(request, 'article.html', {"posts": [post], 'full_text': True})
     except Article.DoesNotExist:
         raise Http404
     

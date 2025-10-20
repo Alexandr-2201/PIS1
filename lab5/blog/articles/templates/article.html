@@ -5,7 +5,9 @@
 <body class="article">
 	<div class="header">
 		<img src="/static/img/sql-logo.png" />
-   		<a href="{% url 'article' %}" class="all-articles">Вернуться ко всем статьям</a>
+		{% if full_text %}
+   			<a href="{% url 'article' %}" class="all-articles">Вернуться ко всем статьям</a>
+		{% endif %}
 	</div>
 	<div>
 		{% for post in posts %}
