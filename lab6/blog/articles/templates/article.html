@@ -1,0 +1,36 @@
+<head>
+	<link rel="stylesheet" href="/static/css/article.css">
+	<title>Архив статей</title>
+</head>
+<body class="article">
+	<div class="header">
+		<img src="/static/img/sql-logo.png" />
+			<a href="{% url 'auth' %}" class="all-articles">Вход в систему</a><br>
+			<a href="{% url 'registration' %}" class="all-articles">Регистрация</a><br>
+			<a href="{% url 'create_post' %}" class="all-articles">Новая статья</a><br>
+		{% if full_text %}
+			<br>
+   			<a href="{% url 'article' %}" class="all-articles">Вернуться ко всем статьям</a>
+		{% endif %}
+	</div>
+	<div>
+		{% for post in posts %}
+		<div class="one-post">
+			<h2 class="post-title">
+				<a href="{% url 'get_article' article_id=post.id %}">
+                    			{{ post.title }}
+                		</a>
+			</h2>
+			<div class="article-info">
+				<div class="article-author">{{ post.author.username }}</div>
+				<div class="article-created-date">{{ post.created_date }}</div>
+			</div>
+			{% if full_text %}
+				<p class="article-text">{{ post.get_excerpt_full }}</p>
+			{% else %}
+				<p class="article-text">{{ post.get_excerpt }}</p>
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
+</body>
